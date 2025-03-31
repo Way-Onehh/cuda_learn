@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.18)
+project(cuda_dome)
 
 #head
 set(subPro My_kernel test_reduce)

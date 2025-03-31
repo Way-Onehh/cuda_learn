@@ -77,10 +77,9 @@ int sum(int * h_input,int N)
     // 调用核函数 
     int numBlocks = (N + BLOCK_SIZE - 1) / BLOCK_SIZE;
     sumKernel<<<numBlocks, BLOCK_SIZE>>>(d_input, d_output, N);
- 
     // 将部分结果从设备复制回主机 
     cudaMemcpy(&h_output, d_output, sizeof(float), cudaMemcpyDeviceToHost);
- 
+
     // 释放设备内存 
     cudaFree(d_input);
     cudaFree(d_output);

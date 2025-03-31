@@ -28,16 +28,11 @@ void inline check_device()
         CUDA_CHECK(cudaGetDeviceProperties(&prop, dev));
         
         printf("    Device %d: %s\n", dev, prop.name);
-        printf("        Compute Capability: %d.%d\n", prop.major, prop.minor);
-        printf("        clockRate: %dHZ\n",prop.clockRate);
         printf("        Global Memory:%.3f GB\n", prop.totalGlobalMem/1e9);
         printf("        Multiprocessors:%d\n", prop.multiProcessorCount);
-        printf("        maxThreadsPerMultiProcessor:%d\n", prop.maxThreadsPerMultiProcessor);
-        printf("        warpSize:%d\n", prop.warpSize);
-        printf("        max grid dimensions: %d, %d, %d\n",prop.maxGridSize[0], prop.maxGridSize[1], prop.maxGridSize[2]);
-        printf("        max thread dimensions: %d, %d, %d\n",prop.maxThreadsDim[0], prop.maxThreadsDim[1], prop.maxThreadsDim[2]);
-        printf("        regsPerBlock: %d\n",prop.regsPerBlock);
-        printf("        sharedMemPerBlock: %.3fKB\n",prop.sharedMemPerBlock/1e3);
+        printf("        regsPerMultiprocessor: %d\n",prop.regsPerMultiprocessor);        
+        printf("        maxThreadsPerMultiProcessor:%d \n", prop.maxThreadsPerMultiProcessor);
+        printf("        sharedMemPerMultiprocessor: %lld\n",prop.sharedMemPerMultiprocessor);
     }
 }
 
